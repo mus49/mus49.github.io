@@ -1,0 +1,64 @@
+body {
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    background-color: #000;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+header,
+footer {
+    padding: 20px;
+    text-align: center;
+}
+
+h1,
+h2,
+pre {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+.about p,
+.projects ul,
+.resume p {
+    color: #ddd;
+}
+
+.projects ul {
+    list-style: none;
+    padding: 0;
+}
+
+.projects li {
+    margin-bottom: 5px;
+}
+
+a {
+    color: #ddd;
+    text-decoration: color-mix(in hsl shorter hue, color percentage, color percentage);
+}
+
+a:hover {
+    color: #fff;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    color: #ccc;
+}

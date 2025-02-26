@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap');
+
+:root {
+    --primary: #D7CEC7;
+    --secondary: #A89C94;
+    --background: #EAE7DC;
+    --text-dark: #4A403A;
+    --text-light: #6D5F52;
+    --accent: #B8A89A;
+    --nav-bg: #D8C3A5;
+    --card-bg: #F4F1EA;
+}
+
+/* General Page Styling */
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--background);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navigation Bar - Same Across All Pages */
+nav {
+    background-color: var(--nav-bg);
+    width: 100%;
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid var(--accent);
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 12px 20px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+nav a.active {
+    color: var(--accent);
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 8px;
+}
+
+/* Main Content Layout */
+.container {
+    width: 60%;
+    padding: 25px;
+    background: var(--primary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+/* Headings */
+h1,
+h2 {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 28px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+/* Blog & Project Cards */
+.blog-list article,
+.project {
+    background: var(--card-bg);
+    padding: 18px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.blog-list article:hover,
+.project:hover {
+    transform: scale(1.02);
+}
+
+.blog-list article h2 a,
+.project h2 a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.blog-list article h2 a:hover,
+.project h2 a:hover {
+    color: var(--accent);
+}
+
+.blog-list article p,
+.project p {
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+/* Footer - Same Across All Pages */
+footer {
+    margin-top: 25px;
+    padding-top: 15px;
+    text-align: center;
+    width: 100%;
+    border-top: 2px solid var(--accent);
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--accent);
+}

@@ -4,34 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>harshvardhan - Projects</title>
+    <title>projects | harshvardhan - ml portfolio</title>
+    <link rel="preload" href="styles.css" as="style">
     <link rel="stylesheet" href="styles.css">
+
+
 </head>
 
 <body>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html" class="active">Projects</a>
-        <a href="blogs.html">Blogs</a>
-    </nav>
-
-    <div class="container">
-        <h1>Projects</h1>
-        <div class="project">
-            <h2><a href="https://github.com/username/project1" target="_blank">Project Name 1</a></h2>
-            <p>Short description of the project.</p>
-        </div>
-        <div class="project">
-            <h2><a href="https://github.com/username/project2" target="_blank">Project Name 2</a></h2>
-            <p>Another project description.</p>
-        </div>
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn" aria-label="Toggle dark/light mode">
+            <span class="toggle-icon">☀️</span>
+            <span class="toggle-icon hidden">🌙</span>
+        </button>
     </div>
 
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="projects.html" class="active">projects</a></li>
+                <li><a href="blogs.html">blogs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="projects">
+            <h1>ml projects</h1>
+
+            <div class="project-card">
+                <h2>computer vision for medical imaging</h2>
+                <p>a deep learning model for detecting abnormalities in x-ray images using convolutional neural
+                    networks.</p>
+                <div class="project-links">
+                    <a href="https://github.com/username/medical-imaging" class="github-link">view on github</a>
+                </div>
+                <div class="tech-stack">
+                    <span>pytorch</span>
+                    <span>python</span>
+                    <span>opencv</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h2>nlp sentiment analysis</h2>
+                <p>a sentiment analysis model for product reviews using bert and transformer architectures.</p>
+                <div class="project-links">
+                    <a href="https://github.com/username/sentiment-analysis" class="github-link">view on github</a>
+                </div>
+                <div class="tech-stack">
+                    <span>tensorflow</span>
+                    <span>hugging face</span>
+                    <span>python</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h2>time series forecasting</h2>
+                <p>predicting stock market trends using lstm networks and statistical methods.</p>
+                <div class="project-links">
+                    <a href="https://github.com/username/time-series" class="github-link">view on github</a>
+                </div>
+                <div class="tech-stack">
+                    <span>keras</span>
+                    <span>pandas</span>
+                    <span>statsmodels</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h2>recommendation system</h2>
+                <p>a collaborative filtering recommendation system for an e-commerce platform.</p>
+                <div class="project-links">
+                    <a href="https://github.com/username/recommendation-system" class="github-link">view on github</a>
+                </div>
+                <div class="tech-stack">
+                    <span>scikit-learn</span>
+                    <span>pyspark</span>
+                    <span>python</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <a href="https://github.com/mus49">GitHub</a> | <a href="https://twitter.com/vrdhhn">Twitter</a>
+        <p>&copy; 2025. all rights reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 
 </html>

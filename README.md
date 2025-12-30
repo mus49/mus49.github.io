@@ -1,6 +1,6 @@
 # Harsh Vardhan's Portfolio Site
 
-A minimal, distraction-free personal portfolio built with Hugo.
+A minimal, distraction-free personal portfolio.
 
 ## Adding New Articles
 

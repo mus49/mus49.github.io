@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+    <meta name="description" content="{{ .Site.Params.description }}">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Serif:wght@400;500&family=IBM+Plex+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main class="homepage">
+        <header class="site-header">
+            <h1>{{ .Site.Title }}</h1>
+            <p class="tagline">{{ .Site.Params.description }}</p>
+            <p class="tagline">M.Tech. CSE-Research @IIIT Delhi</p>
+        </header>
+
+        <nav class="main-nav">
+            <span class="nav-label">—</span>
+            <a href="/research/">Research</a> ·
+            <a href="/essays/">Essays</a> ·
+            <a href="/projects/">Projects</a>
+            <span class="nav-label">—</span>
+        </nav>
+
+        <section class="recent-work">
+            <h2>Recent Work</h2>
+            <ul>
+                {{ range first 3 (where .Site.RegularPages "Section" "projects") }}
+                <li>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    {{ if .Params.description }}
+                    <span class="muted"> — {{ .Params.description }}</span>
+                    {{ end }}
+                </li>
+                {{ end }}
+            </ul>
+        </section>
+
+        <section class="selected-writing">
+            <h2>Selected Essays</h2>
+            <ul>
+                {{ range first 3 (where .Site.RegularPages "Section" "essays") }}
+                <li>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    {{ if .Params.description }}
+                    <span class="muted"> — {{ .Params.description }}</span>
+                    {{ end }}
+                </li>
+                {{ end }}
+            </ul>
+        </section>
+
+        <footer class="site-footer">
+            <p>
+                <a href="mailto:{{ .Site.Params.email }}">Email</a> ·
+                <a href="https://github.com/{{ .Site.Params.github }}">GitHub</a> ·
+                <a href="https://twitter.com/{{ .Site.Params.twitter }}">Twitter</a>
+            </p>
+        </footer>
+    </main>
+</body>
+
+</html>

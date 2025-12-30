@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Parser Implementation - Harsh Vardhan</title>
+    <meta name="description" content="Researcher working on NLP, algorithms, and language">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Serif:wght@400;500&family=IBM+Plex+Mono&display=swap"
+        rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false,
+          trust: true,
+          strict: false,
+          macros: {
+            '\\eqref': '\\href{###1}{(\\text{#1})}',
+            '\\ref': '\\href{###1}{\\text{#1}}',
+            '\\label': '\\htmlId{#1}{}'
+          }
+        });">
+        </script>
+</head>
+
+<body>
+    
+<main class="article">
+    <nav class="back-nav">
+        <a href="/projects/" class="back-link">←</a>
+    </nav>
+
+    <article>
+        <h1>Custom Parser Implementation</h1>
+        
+        <p class="article-meta muted">December 30, 2025</p>
+        
+        <div class="article-content">
+            <p>Building a parser from scratch provides deep insights into how programming languages work. This project implements a recursive descent parser for a small functional language.</p>
+<h2 id="language-features">Language Features</h2>
+<p>The language supports:</p>
+<ul>
+<li>Lambda expressions: <code>λx. x + 1</code></li>
+<li>Let bindings: <code>let x = 5 in x * 2</code></li>
+<li>Arithmetic operations</li>
+<li>Function application</li>
+</ul>
+<h2 id="tokenization">Tokenization</h2>
+<p>First, we convert the input string into tokens:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tokenize</span>(input_str):
+</span></span><span style="display:flex;"><span>    tokens <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    current <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> char <span style="color:#f92672">in</span> input_str:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> char <span style="color:#f92672">in</span> <span style="color:#e6db74">&#34; </span><span style="color:#ae81ff">\t\n</span><span style="color:#e6db74">&#34;</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> current:
+</span></span><span style="display:flex;"><span>                tokens<span style="color:#f92672">.</span>append(current)
+</span></span><span style="display:flex;"><span>                current <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> char <span style="color:#f92672">in</span> <span style="color:#e6db74">&#34;()&#34;</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> current:
+</span></span><span style="display:flex;"><span>                tokens<span style="color:#f92672">.</span>append(current)
+</span></span><span style="display:flex;"><span>            tokens<span style="color:#f92672">.</span>append(char)
+</span></span><span style="display:flex;"><span>            current <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            current <span style="color:#f92672">+=</span> char
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> tokens
+</span></span></code></pre></div><h2 id="parsing">Parsing</h2>
+<p>The parser builds an abstract syntax tree (AST):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">parse_expr</span>(tokens):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> tokens[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;λ&#39;</span>:
+</span></span><span style="display:flex;"><span>        param <span style="color:#f92672">=</span> tokens[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        body <span style="color:#f92672">=</span> parse_expr(tokens[<span style="color:#ae81ff">3</span>:])
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Lambda(param, body)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> tokens[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;let&#39;</span>:
+</span></span><span style="display:flex;"><span>        var <span style="color:#f92672">=</span> tokens[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        value <span style="color:#f92672">=</span> parse_expr(tokens[<span style="color:#ae81ff">3</span>:])
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Let(var, value)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># ... more cases</span>
+</span></span></code></pre></div><h2 id="evaluation">Evaluation</h2>
+<p>Once parsed, expressions can be evaluated in an environment:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">eval_expr</span>(expr, env):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> isinstance(expr, Lambda):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Closure(expr<span style="color:#f92672">.</span>param, expr<span style="color:#f92672">.</span>body, env)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> isinstance(expr, Application):
+</span></span><span style="display:flex;"><span>        func <span style="color:#f92672">=</span> eval_expr(expr<span style="color:#f92672">.</span>func, env)
+</span></span><span style="display:flex;"><span>        arg <span style="color:#f92672">=</span> eval_expr(expr<span style="color:#f92672">.</span>arg, env)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> apply(func, arg)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># ... more cases</span>
+</span></span></code></pre></div><h2 id="results">Results</h2>
+<p>The parser successfully handles nested expressions and properly implements lexical scoping. Future work includes adding type checking and optimization passes.</p>
+<p><strong>GitHub</strong>: <a href="https://github.com/mus49">github.com/mus49/parser</a></p>
+
+        </div>
+    </article>
+</main>
+
+</body>
+
+</html>

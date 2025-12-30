@@ -1,0 +1,35 @@
+baseURL = "https://yourdomain.com/"
+languageCode = "en-us"
+title = "Harsh Vardhan"
+theme = "bearblog"
+
+paginate = 10
+enableGitInfo = true
+
+[params]
+  description = "Research, writing, and tools at the intersection of language, computation, and philosophy."
+  hideMadeWithLine = true
+
+  # Fonts
+  customCSS = ["css/custom.css"]
+
+[menu]
+  [[menu.main]]
+    name = "Research"
+    url = "/research/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Writing"
+    url = "/writing/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 3
+
+  [[menu.main]]
+    name = "Notes"
+    url = "/notes/"
+    weight = 4

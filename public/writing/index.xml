@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writings on Harsh Vardhan</title>
+    <link>http://localhost:1313/writing/</link>
+    <description>Recent content in Writings on Harsh Vardhan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/writing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why Language Matters</title>
+      <link>http://localhost:1313/writing/why-language-matters/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writing/why-language-matters/</guid>
+      <description>Language is more than just a tool for communication—it&amp;rsquo;s the bedrock of human thought and civilization.&#xA;The Sapir-Whorf Hypothesis The way we speak influences how we think&amp;hellip;&#xA;Language and Power Words shape reality in profound ways.</description>
+    </item>
+    <item>
+      <title>Propaganda as Computation</title>
+      <link>http://localhost:1313/writing/propaganda-as-computation/</link>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writing/propaganda-as-computation/</guid>
+      <description>Propaganda can be understood as a computational process that manipulates information flows.&#xA;Information as Input At its core, propaganda is about controlling what information reaches an audience&amp;hellip;&#xA;Feedback Loops Modern propaganda systems create feedback loops that amplify certain narratives.</description>
+    </item>
+  </channel>
+</rss>

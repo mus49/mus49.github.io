@@ -140,9 +140,6 @@ pre code {
     margin: 2rem 0;
     font-size: 1.1rem;
     text-align: center;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 20px;
 }
 
 .nav-label {
@@ -154,11 +151,6 @@ pre code {
 .recent-work,
 .selected-writing {
     margin-bottom: 2.5rem;
-    background: rgba(255, 255, 255, 0.5);
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(204, 85, 0, 0.08);
-    border: 1px solid rgba(204, 85, 0, 0.1);
 }
 
 .recent-work h2,

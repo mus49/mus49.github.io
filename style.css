@@ -1,0 +1,204 @@
+/* Harsh Vardhan — researcher profile */
+
+:root {
+  --bg: #fffaf7;
+  --fg: #262220;
+  --muted: #6d655f;
+  --accent: #b4471a;
+  --rule: #e6ddd6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17150e;
+    --fg: #e8e2d9;
+    --muted: #9b938a;
+    --accent: #e08a52;
+    --rule: #332e28;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 5rem;
+}
+
+/* Header */
+
+h1 {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin: 0.35rem 0 0;
+}
+
+.links {
+  margin-top: 0.9rem;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.9rem;
+}
+
+.links a + a {
+  margin-left: 1rem;
+}
+
+header {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Sections */
+
+section {
+  margin-top: 2.5rem;
+}
+
+h2 {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.9rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* Lists */
+
+ul.plain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.plain li {
+  padding-left: 1.6rem;
+  position: relative;
+  margin-bottom: 0.35rem;
+}
+
+ul.plain li::before {
+  content: "\2014";
+  font-size: 0.85em;
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+
+/* Publications */
+
+ol.pubs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ol.pubs li {
+  margin-bottom: 1.25rem;
+}
+
+.pub-title {
+  font-weight: 500;
+}
+
+.authors,
+.venue {
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+
+.pub-links {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.82rem;
+  margin-left: 0.4rem;
+}
+
+.pub-links a + a {
+  margin-left: 0.6rem;
+}
+
+.note {
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+
+/* Education */
+
+dl.edu {
+  margin: 0;
+}
+
+dl.edu dt {
+  font-weight: 500;
+}
+
+dl.edu dd {
+  margin: 0 0 0.85rem;
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+
+dl.edu dd:last-child {
+  margin-bottom: 0;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+@media (max-width: 480px) {
+  main {
+    padding-top: 3rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}

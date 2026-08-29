@@ -55,6 +55,16 @@ h1 {
   margin: 0.35rem 0 0;
 }
 
+.subtitle a {
+  color: inherit;
+  border-bottom-color: var(--rule);
+}
+
+.subtitle a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
 .links {
   margin-top: 0.9rem;
   font-family: "IBM Plex Sans", system-ui, sans-serif;
@@ -63,6 +73,16 @@ h1 {
 
 .links a + a {
   margin-left: 1rem;
+}
+
+.links a.icon {
+  border-bottom: none;
+  vertical-align: -0.22em;
+  line-height: 0;
+}
+
+.links a.icon:hover {
+  color: var(--fg);
 }
 
 header {
@@ -123,6 +143,15 @@ ul.plain li::before {
   font-size: 0.85em;
   position: absolute;
   left: 0;
+  color: var(--muted);
+}
+
+.lead-in {
+  margin-bottom: 0.5rem;
+}
+
+.code {
+  font-size: 0.88em;
   color: var(--muted);
 }
 

@@ -16,24 +16,45 @@
 </head>
 
 <body>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
   <main>
 
     <header>
-      <h1>Harsh Vardhan</h1>
-      <p class="subtitle">M.Tech CSE (Research) &middot; <a href="https://flamenlp.in/">FLaMe.nlp Research
-          Lab</a>, IIIT Delhi</p>
-      <nav class="links">
-        <a class="icon" href="mailto:harsh25001@iiitd.ac.in" aria-label="Email" title="harsh25001@iiitd.ac.in">
-          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"
-            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"></rect>
-            <path d="M3 6.5l9 6.5 9-6.5"></path>
-          </svg>
-        </a>
-        <a href="https://github.com/mus49">GitHub</a>
-        <a href="https://www.linkedin.com/in/~hvardhan/">LinkedIn</a>
-        <a href="https://scholar.google.com/citations?user=9QO0UMUAAAAJ&amp;hl=en">Google Scholar</a>
-      </nav>
+      <div class="header-text">
+        <h1>Harsh Vardhan</h1>
+        <p class="subtitle">M.Tech CSE (Research) &middot; <a href="https://flamenlp.in/">FLaMe.nlp Research
+            Lab</a>, IIIT Delhi</p>
+        <nav class="links">
+          <a class="icon" href="mailto:harsh25001@iiitd.ac.in" aria-label="Email" title="harsh25001@iiitd.ac.in">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"></rect>
+              <path d="M3 6.5l9 6.5 9-6.5"></path>
+            </svg>
+          </a>
+          <a href="https://github.com/mus49">GitHub</a>
+          <a href="https://www.linkedin.com/in/~hvardhan/">LinkedIn</a>
+          <a href="https://scholar.google.com/citations?user=9QO0UMUAAAAJ&amp;hl=en">Google Scholar</a>
+        </nav>
+      </div>
+      <img class="portrait" src="portrait-sm.jpg" alt="Harsh Vardhan" width="200" height="200">
     </header>
 
     <section>
@@ -98,6 +119,37 @@
     </footer>
 
   </main>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById('theme-toggle');
+      const root = document.documentElement;
+
+      // Resolve initial theme: stored preference > OS preference > light
+      function getPreferred() {
+        const stored = localStorage.getItem('theme');
+        if (stored) return stored;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      function apply(theme) {
+        if (theme === 'dark') {
+          root.setAttribute('data-theme', 'dark');
+        } else {
+          root.removeAttribute('data-theme');
+        }
+      }
+
+      apply(getPreferred());
+
+      toggle.addEventListener('click', function () {
+        const isDark = root.getAttribute('data-theme') === 'dark';
+        const next = isDark ? 'light' : 'dark';
+        localStorage.setItem('theme', next);
+        apply(next);
+      });
+    })();
+  </script>
 </body>
 
 </html>

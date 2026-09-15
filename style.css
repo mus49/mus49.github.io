@@ -1,31 +1,78 @@
 /* Harsh Vardhan — researcher profile */
 
 :root {
-  --bg: #fdfaf9;
-  --fg: #211c1f;
-  --muted: #6f6469;
-  --faint: #7a6f74;
-  --accent: #c24d74;
-  --accent-soft: #e8c3d0;
-  --rule: #ece2e3;
+  --bg: #fef9f8;
+  --fg: #2c2428;
+  --muted: #7d6b73;
+  --faint: #8a7a82;
+  --accent: #b8436a;
+  --accent-soft: #e8c1d0;
+  --rule: #f0e4e6;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #151215;
-    --fg: #e8e1e4;
-    --muted: #9a8f95;
-    --faint: #948a90;
-    --accent: #e76c95;
-    --accent-soft: #4a2f3c;
-    --rule: #2b252c;
-  }
+[data-theme="dark"] {
+  --bg: #161214;
+  --fg: #e4dce0;
+  --muted: #a0929a;
+  --faint: #978a92;
+  --accent: #d4628a;
+  --accent-soft: #3d2230;
+  --rule: #2a2026;
+}
+
+/* Theme toggle */
+
+.theme-toggle {
+  position: fixed;
+  top: 1.1rem;
+  right: 1.3rem;
+  z-index: 100;
+  background: none;
+  border: 1.5px solid var(--rule);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color 0.25s ease, border-color 0.25s ease;
+  padding: 0;
+  line-height: 0;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent-soft);
+}
+
+.theme-toggle svg {
+  width: 14px;
+  height: 14px;
+}
+
+.theme-toggle .icon-moon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: block;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--fg);
 }
 
 body {
@@ -86,6 +133,7 @@ h1 {
 .links {
   margin-top: 1.15rem;
   font-size: 0.82rem;
+  font-weight: 500;
   letter-spacing: 0.01em;
 }
 
@@ -100,8 +148,29 @@ h1 {
 }
 
 header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
   padding-bottom: 2.25rem;
   border-bottom: 1px solid var(--rule);
+}
+
+.header-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.portrait {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  flex-shrink: 0;
+  border: 3px solid var(--accent);
+  padding: 3px;
+  background: var(--bg);
 }
 
 /* Sections */
@@ -268,5 +337,16 @@ footer {
 
   body {
     font-size: 16px;
+  }
+
+  header {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+
+  .portrait {
+    width: 5.5rem;
+    height: 5.5rem;
   }
 }
